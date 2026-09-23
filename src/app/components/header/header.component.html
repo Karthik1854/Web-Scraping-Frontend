@@ -1,0 +1,48 @@
+<header class="app-header">
+  <div class="header-container">
+    <!-- Brand Logo -->
+    <a href="/" class="brand" (click)="$event.preventDefault()">
+      <div class="brand-logo-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <!-- Tee stem as vertical stroke -->
+          <path d="M7 6H13C13 6 13 8 11.5 10V28C11.5 29.5 10 30 9.25 30C8.5 30 7 29.5 7 28V10C5.5 8 5.5 6 7 6Z" fill="#ffdf4f" />
+          <!-- R Upper loop and leg -->
+          <path d="M12 6H21C24.5 6 27 8.5 27 12C27 15.5 24.5 18 21 18H12V6Z" fill="#ffdf4f" />
+          <path d="M18 17L26.5 29H20.5L13.5 18.5H18Z" fill="#ffdf4f" />
+          <path d="M13 10.5H20C21.5 10.5 22.5 11.2 22.5 12C22.5 12.8 21.5 13.5 20 13.5H13V10.5Z" fill="#003824" />
+        </svg>
+      </div>
+      <div class="brand-text-block">
+        <div class="brand-title">
+          <span class="brand-name">RapidTee</span>
+          <span class="brand-sub">Golf</span>
+        </div>
+        <span class="brand-tagline">ACCESS PREMIUM COURSES</span>
+      </div>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="nav-menu">
+      @for (item of navItems; track item.label) {
+        <a
+          [href]="item.link"
+          class="nav-link"
+          [class.active]="activeNav() === item.label"
+          (click)="setActive(item.label, $event)"
+        >
+          {{ item.label }}
+          @if (item.hasBadge) {
+            <span class="badge-new">{{ item.badgeText }}</span>
+          }
+        </a>
+      }
+    </nav>
+
+    <!-- Auth Action Buttons -->
+    <div class="header-actions">
+      <button type="button" class="btn btn-signin">Sign in</button>
+      <button type="button" class="btn btn-get-started">Get Started</button>
+    </div>
+  <!-- </div> -->
+   ddd
+</header>

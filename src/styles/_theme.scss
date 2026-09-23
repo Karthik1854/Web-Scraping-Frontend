@@ -1,0 +1,124 @@
+@use 'palettes';
+
+:root {
+  --font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  
+  --primary: var(--mat-sys-primary);
+  --primary-deep: #0b5d33;
+  --accent: #16a34a;
+  --price: #15803d;
+  --on-primary: #ffffff;
+
+  --ink: #16221c;
+  --ink-soft: #5b6e63;
+  --ink-faint: #8a9a90;
+
+  --ground: #eef2ee;
+  --surface: #ffffff;
+  --surface-low: #f5f8f5;
+
+  --line: #dbe3dc;
+  --line-soft: #eef1ee;
+
+  --warn: #b3261e;
+  --warn-bg: #fdecea;
+
+  --radius: 12px;
+  --radius-full: 9999px;
+
+  --shadow: 0 1px 2px rgba(22, 34, 28, 0.06), 0 8px 24px -14px rgba(22, 34, 28, 0.2);
+  --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.25);
+
+  /* Global Theme Tokens */
+  --mat-sys-surface: #ffffff;
+  --mat-sys-on-surface: #16221c;
+
+  --mat-sys-primary: #085136;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-accent: #16a34a;
+  --mat-sys-price: #15803d;
+  --mat-sys-primary-deep: #0b5d33;
+  --mat-sys-ink-soft: #5b6e63;
+  --mat-sys-ink-faint: #8a9a90;
+  --mat-sys-ground: #eef2ee;
+  --mat-sys-line: #dbe3dc;
+  --mat-sys-line-soft: #eef1ee;
+  --mat-sys-surface-low: #f5f8f5;
+  --mat-sys-warn: #b3261e;
+  --mat-sys-warn-bg: #fdecea;
+  --mat-sys-hover-border: #c7d2c9;
+  --mat-sys-success-container: #e7f4ea;
+  --mat-sys-success-border: #bfe0c8;
+  --mat-sys-success: #1b5e2a;
+  --mat-sys-error-border: #f2c4c0;
+  --mat-sys-surface-muted: #cfd8d0;
+  --mat-sys-border-muted: #a8c0ae;
+  --mat-sys-footer-text: #496274;
+  --mat-sys-footer-border: #d7ddd9;
+  --mat-sys-dialog-text: #4b5563;
+  --mat-sys-dialog-border: #d1d5db;
+  --mat-sys-dialog-hover: #f9fafb;
+  --mat-sys-dialog-hover-border: #9ca3af;
+  --mat-sys-dialog-error: #b91c1c;
+  --mat-sys-dialog-error-border: #fca5a5;
+  --mat-sys-dialog-error-bg: #fef2f2;
+  --mat-sys-dialog-error-hover-border: #f87171;
+  --mat-sys-coupon-success: #2e7d32;
+  --mat-sys-coupon-success-bg: #e8f5e9;
+  --mat-sys-checkout-success-bg: #e9f3ea;
+  --mat-sys-checkout-success-border: #c9e2ce;
+  --mat-sys-checkout-info-bg: #e8f1fb;
+  --mat-sys-checkout-info-border: #c7dcf4;
+  --mat-sys-checkout-info-text: #14507f;
+  --mat-sys-faq-warning-border: #f2d18b;
+  --mat-sys-faq-warning-bg: #fff3d6;
+  --mat-sys-faq-warning-text: #8a5a00;
+  --mat-sys-map-gradient-start: #dbe9dd;
+  --mat-sys-map-gradient-mid: #e6efe6;
+  --mat-sys-map-gradient-end: #dae6dd;
+  --mat-sys-sidebar-surface: #fff;
+  --mat-sys-sidebar-placeholder: #9aaba2;
+  --mat-sys-sidebar-focus-ring: rgba(8, 81, 54, 0.12);
+  --mat-sys-sidebar-shadow: rgba(22, 34, 28, 0.05);
+  --mat-sys-sidebar-shadow-hover: rgba(22, 34, 28, 0.08);
+  --mat-sys-sidebar-selected-ring: rgba(8, 81, 54, 0.15);
+  --mat-sys-sidebar-fee-bg: rgba(21, 128, 61, 0.08);
+  --mat-sys-rate-tile-selected-ring: rgba(8, 81, 54, 0.14);
+  --mat-sys-tee-time-low-border: #f0cfcb;
+  --mat-sys-tier-badge-slate: #64748b;
+  --mat-sys-tier-badge-amber: #d97706;
+  --mat-sys-tier-badge-dark-slate: #334155;
+  --mat-sys-tier-badge-purple: #6b21a8;
+  --mat-sys-client-magenta: #db2777;
+  --mat-sys-booking-pending-bg: #fef3c7;
+  --mat-sys-booking-pending-border: #fde68a;
+  --mat-sys-booking-pending-text: #92400e;
+  --mat-sys-booking-cancelled-bg: #fee2e2;
+  --mat-sys-booking-cancelled-text: #991b1b;
+  --mat-sys-booking-button-border: #cfe0d8;
+  --mat-sys-cancel-dialog-border: #d4ded7;
+  --mat-sys-cancel-dialog-course-text: #3b4e44;
+  --mat-sys-booking-button-hover-bg: #f8fafc;
+  --mat-sys-booking-cancel: #cbd5e1;
+  --mat-sys-booking-cancel-hover: #4b6354;
+  --mat-sys-time-picker-active-bg: #e2e5e3;
+  --mat-sys-time-picker-shadow: rgba(22, 34, 28, 0.12);
+  
+  --paradise-tier-silver-bg: #757575;
+  --paradise-tier-silver-fg: #fff;
+  --paradise-tier-silver-text: #616161;
+
+  --paradise-tier-gold-bg: #f9a825;
+  --paradise-tier-gold-fg: #000;
+  --paradise-tier-gold-text: #8b6914;
+
+  --paradise-tier-platinum-bg: #546e7a;
+  --paradise-tier-platinum-fg: #fff;
+  --paradise-tier-platinum-text: #3949ab;
+
+  /* Accent Gold from Paradise palette for RapidTee highlight */
+  --accent-gold: #f0c800;
+  --accent-gold-bright: #ffdf4f;
+  --accent-gold-hover: #d4ac00;
+}

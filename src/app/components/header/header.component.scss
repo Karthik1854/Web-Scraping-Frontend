@@ -1,0 +1,174 @@
+.app-header {
+  width: 100%;
+  padding: 1.25rem 2.5rem;
+  background-color: transparent;
+  position: relative;
+  z-index: 50;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  .brand-logo-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo-svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .brand-text-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+
+      .brand-name {
+        font-size: 1.125rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+
+      .brand-sub {
+        font-size: 1.125rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+    }
+
+    .brand-tagline {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold-bright, #ffdf4f);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    position: relative;
+    padding: 0.25rem 0;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: -10px;
+      right: -18px;
+      background-color: var(--warn, #b3261e);
+      color: #ffffff;
+      font-size: 0.5625rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+  }
+}
+
+/* Header Buttons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+
+  .btn {
+    padding: 0.625rem 1.4rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    cursor: pointer;
+
+    &.btn-signin {
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      color: #ffffff;
+      background: transparent;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+        border-color: #ffffff;
+      }
+    }
+
+    &.btn-get-started {
+      background-color: var(--accent-gold-bright, #ffdf4f);
+      color: #003824;
+      border: none;
+
+      &:hover {
+        background-color: var(--accent-gold, #f0c800);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    padding: 1rem;
+  }
+
+  .header-actions {
+    .btn {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8125rem;
+    }
+  }
+}

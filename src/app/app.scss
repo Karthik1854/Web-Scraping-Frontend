@@ -1,0 +1,551 @@
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #003824; /* Deep rich emerald green from paradise-primary-palette */
+  color: var(--on-primary, #ffffff);
+  font-family: var(--font-family-base);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3.5rem 1.5rem 9rem;
+  text-align: center;
+  position: relative;
+
+  .hero-content {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Hero Typography */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+
+  .hero-title-top {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    color: #ffffff;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-title-highlight {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    color: var(--accent-gold-bright, #ffdf4f);
+    letter-spacing: -0.03em;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 580px;
+  margin-bottom: 2.75rem;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Search Widget Bar
+   ========================================================================== */
+.search-bar-wrapper {
+  position: relative;
+  z-index: 100;
+  margin-bottom: 2rem;
+}
+
+.search-bar-container {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--surface, #ffffff);
+  border-radius: 9999px;
+  padding: 0.375rem 0.5rem 0.375rem 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+  max-width: 100%;
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    .field-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--ink-soft, #5b6e63);
+      flex-shrink: 0;
+    }
+
+    .field-value {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--ink, #16221c);
+      white-space: nowrap;
+    }
+
+    &.date-field {
+      position: relative;
+    }
+  }
+
+  .field-divider {
+    width: 1px;
+    height: 24px;
+    background-color: var(--line, #dbe3dc);
+    margin: 0 0.125rem;
+  }
+
+  .btn-find-times {
+    background-color: #003824; /* Primary deep green from theme */
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: #00442c;
+      box-shadow: 0 4px 12px rgba(0, 56, 36, 0.4);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Dropdown Menu (Location, Players, Holes) */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 180px;
+  background: #ffffff;
+  border-radius: var(--radius, 12px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--line, #dbe3dc);
+  padding: 0.375rem;
+  z-index: 1000;
+  text-align: left;
+  animation: dropdownFade 0.15s ease-out;
+
+  .dropdown-item {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ink, #16221c);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: var(--surface-low, #f5f8f5);
+      color: var(--primary-deep, #0b5d33);
+    }
+
+    &.selected {
+      background-color: var(--ground, #eef2ee);
+      color: var(--primary, #085136);
+      font-weight: 700;
+    }
+  }
+}
+
+/* ==========================================================================
+   Exact Calendar Modal & Time-Window Dropdown
+   ========================================================================== */
+.calendar-modal {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  background: #ffffff !important;
+  opacity: 1 !important;
+  border-radius: 22px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28), 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--line, #dbe3dc);
+  padding: 1.35rem 1.25rem 1.25rem;
+  z-index: 1000;
+  text-align: left;
+  cursor: default;
+  animation: dropdownFade 0.15s ease-out;
+
+  /* Header: Month & Year + Chevron Navigation */
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+    margin-bottom: 0.75rem;
+
+    .month-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--ink, #16221c);
+    }
+
+    .month-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      .nav-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1px solid var(--line, #dbe3dc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-soft, #5b6e63);
+        background: #ffffff;
+        transition: all 0.15s ease;
+        cursor: pointer;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+
+        &:hover {
+          background-color: var(--surface-low, #f5f8f5);
+          border-color: var(--ink-soft, #5b6e63);
+          color: var(--ink, #16221c);
+        }
+      }
+    }
+  }
+
+  /* Weekdays */
+  .weekday-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 0.5rem;
+
+    .weekday-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--ink-faint, #8a9a90);
+      letter-spacing: 0.03em;
+    }
+  }
+
+  /* Days Grid & Perfect Hover Effects */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 0.25rem;
+    column-gap: 0.15rem;
+    justify-items: center;
+    align-items: center;
+
+    .day-cell {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink, #16221c);
+      user-select: none;
+      transition: background-color 0.15s ease, color 0.15s ease;
+
+      .day-number {
+        line-height: 1;
+      }
+
+      .today-dot {
+        width: 3.5px;
+        height: 3.5px;
+        background-color: var(--ink, #16221c);
+        border-radius: 50%;
+        position: absolute;
+        bottom: 5px;
+      }
+
+      /* Hover effect for selectable dates */
+      &:hover:not(.inactive):not(.selected) {
+        background-color: #f1f5f2;
+        color: #003824;
+      }
+
+      &.today {
+        font-weight: 800;
+      }
+
+      /* Selected active date (Green circle) */
+      &.selected {
+        background-color: #003824 !important;
+        color: #ffffff !important;
+        font-weight: 700;
+
+        .today-dot {
+          background-color: #ffffff !important;
+        }
+
+        &:hover {
+          background-color: #00442c !important;
+        }
+      }
+
+      /* Disabled / Inactive past dates */
+      &.inactive {
+        color: #cfd8d0;
+        opacity: 0.45;
+        cursor: default;
+        pointer-events: none;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  /* Divider */
+  .calendar-divider {
+    height: 1px;
+    background-color: var(--line-soft, #eef1ee);
+    margin: 1.15rem 0 1rem;
+  }
+
+  /* Time Window Selector Row */
+  .time-window-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.6rem;
+
+    .time-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+
+      .time-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ink-soft, #5b6e63);
+        text-align: center;
+      }
+
+      .time-select-wrapper {
+        position: relative;
+        width: 100%;
+
+        .time-select {
+          width: 100%;
+          appearance: none;
+          background: #ffffff;
+          border: 1.5px solid var(--line, #dbe3dc);
+          border-radius: 12px;
+          padding: 0.55rem 1.75rem 0.55rem 0.85rem;
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--ink, #16221c);
+          cursor: pointer;
+          outline: none;
+          transition: border-color 0.15s ease;
+
+          &:hover, &:focus {
+            border-color: var(--primary, #085136);
+          }
+        }
+
+        .chevron-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 14px;
+          height: 14px;
+          color: var(--ink-soft, #5b6e63);
+          pointer-events: none;
+        }
+      }
+    }
+
+    .time-separator {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-faint, #8a9a90);
+      margin-bottom: 0.65rem;
+    }
+  }
+
+  /* Caption */
+  .time-caption {
+    font-size: 0.75rem;
+    color: var(--ink-soft, #5b6e63);
+    text-align: center;
+    margin: 0.85rem 0 1rem;
+    font-weight: 500;
+  }
+
+  /* Apply CTA Button */
+  .btn-calendar-apply {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #003824; /* Theme primary deep green */
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    border-radius: 9999px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #00442c;
+      box-shadow: 0 4px 12px rgba(0, 56, 36, 0.35);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ==========================================================================
+   Hero Footers & Helpers
+   ========================================================================== */
+.hero-footers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 0.5rem;
+
+  .location-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.75);
+
+    .hint-icon {
+      width: 14px;
+      height: 14px;
+      transform: rotate(-35deg);
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .hint-link {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--accent-gold-bright, #ffdf4f);
+      }
+    }
+  }
+
+  .trial-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+
+    .guarantee-icon {
+      width: 13px;
+      height: 13px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 960px) {
+  .search-bar-container {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding: 0.75rem;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .field-divider {
+      display: none;
+    }
+
+    .btn-find-times {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .search-bar-container {
+    width: 100%;
+
+    .search-field {
+      width: calc(50% - 0.5rem);
+      justify-content: center;
+    }
+  }
+
+  .calendar-modal {
+    width: 310px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+
+    .days-grid .day-cell {
+      width: 32px;
+      height: 32px;
+      font-size: 0.8125rem;
+    }
+  }
+}
